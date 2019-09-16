@@ -6,7 +6,7 @@ const cleanInputs = () => {
 
 const insertIngredient = ingredient => {
     const markUp = `
-        <div class="form-row" data-ingredientid="${ ingredient.id }">
+        <div class="form-row list__item" data-ingredientid="${ ingredient.id }">
             <div class="form-group col-md-1">
                 <button type="button" class="btn btn-outline-success btn-sm"><i class="icon ion-md-add"></i></button>
             </div>
