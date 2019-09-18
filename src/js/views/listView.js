@@ -1,6 +1,6 @@
 const addItem = ingredient => {
     const markUp = `
-        <div class="form-row list__item" data-ingredientid="${ ingredient.id }">
+        <div class="form-row list__item" data-itemid="${ ingredient.id }">
             <div class="form-group col-md-1">
                 <button type="button" class="btn btn-outline-success btn-sm"><i class="icon ion-md-add"></i></button>
             </div>
@@ -22,6 +22,11 @@ const addItem = ingredient => {
         </div>
     `;
 
-    elements.ingredientsList.insertAdjacentHTML('beforeend', markUp);
+    elements.list.insertAdjacentHTML('beforeend', markUp);
+};
+
+const removeItem = itemId => {
+    const item = document.querySelector(`[data-itemid="${itemId}"]`);
+    item.parentNode.removeChild(item);
 };
 

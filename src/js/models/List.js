@@ -5,5 +5,9 @@ class List {
 
     addItem(ingredient) {
         this.items.push(ingredient);
-    } 
+    }
+    
+    removeItem(index) {
+        this.items.splice(index, 1);
+    }
 }
