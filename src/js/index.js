@@ -28,10 +28,10 @@ const controlList = () => {
         state.list = new List();
     }
 
-    // Add item to list
+    // Add item to the list
     state.list.addItem(state.ingredient);
 
-    // Add item into the DOM
+    // Add item on the view
     addItem(state.ingredient);
 }
 
@@ -48,3 +48,4 @@ elements.ingredientValidateBtn.addEventListener('click', () => {
     cleanInputs();
     controlList();
 });
+
