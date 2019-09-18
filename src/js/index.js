@@ -41,7 +41,29 @@ const controlList = () => {
         // Add item on the view
         addItem(state.ingredient);
     }
-}
+};
+
+
+// Recipe controler
+const controlRecipe = item => {
+
+    // Create new recipe
+    if (!state.recipe) {
+        state.recipe = new Recipe();
+    }
+
+    // Test if item doesn't exist in the items
+    const found = state.recipe.items.find(el => el.id === item.id);
+    if (!found) {
+        // Add item to recipe 
+        state.recipe.addItem(item);
+
+        // Insert item on recipe view
+        insertItem(item);
+    } else {
+        
+    }
+};
 
 document.addEventListener('keypress', event => {
     if (event.keyCode === 13 || event.which === 13) {
@@ -62,9 +84,11 @@ elements.ingredientValidateBtn.addEventListener('click', () => {
 elements.list.addEventListener('click', event => {
 
     // Get itemId
-    const itemId = event.target.closest('.list__item').dataset.itemid;
+    const itemId = event.target.closest('.list__item') 
+    ? event.target.closest('.list__item').dataset.itemid
+    : 0;
     
-    if (event.target.matches('.btn-close')) {
+    if (event.target.closest('.btn-close')) {
         // Get itemIndex
         const itemIndex = state.list.items.findIndex(item => item.id === parseInt(itemId, 10));
         
@@ -73,5 +97,8 @@ elements.list.addEventListener('click', event => {
         
         // Remove item from list view
         removeItem(itemId);
+    } else if (event.target.closest('.btn-insert')) {
+        const item = state.list.items.find(item => item.id === parseInt(itemId, 10));
+        controlRecipe(item);
     }
 });

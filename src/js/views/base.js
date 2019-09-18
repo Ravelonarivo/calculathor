@@ -3,5 +3,6 @@ const elements = {
     ingredientPrice: document.querySelector('.ingredient__price'),
     ingredientUnit: document.querySelector('.ingredient__unit'),
     ingredientValidateBtn: document.querySelector('.ingredient__validate--btn'),
-    list: document.querySelector('.list')
+    list: document.querySelector('.list'),
+    recipe: document.querySelector('.recipe')
 };

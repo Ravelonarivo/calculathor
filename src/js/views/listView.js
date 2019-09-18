@@ -2,7 +2,7 @@ const addItem = ingredient => {
     const markUp = `
         <div class="form-row list__item" data-itemid="${ ingredient.id }">
             <div class="form-group col-md-1">
-                <button type="button" class="btn btn-outline-success btn-sm"><i class="icon ion-md-add"></i></button>
+                <button type="button" class="btn btn-outline-success btn-sm btn-insert"><i class="icon ion-md-add"></i></button>
             </div>
             <div class="form-group col-md-4">
                 <input type="text" class="form-control form-control-sm" placeholder="Name" value="${ingredient.name}">
