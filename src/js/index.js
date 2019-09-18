@@ -17,8 +17,10 @@ const controlIngredient = () => {
 
         // Create Ingredient
         const ingredient = new Ingredient(id, elements.ingredientName.value, elements.ingredientPrice.value, elements.ingredientUnit.value);
-        state.ingredients.push(ingredient);
-        insertIngredient(ingredient);
+        
+        state.ingredient = ingredient;
+        //state.ingredients.push(ingredient);
+        //insertIngredient(ingredient);
     }
 };
 
