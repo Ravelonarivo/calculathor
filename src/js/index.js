@@ -61,7 +61,7 @@ const controlRecipe = item => {
         // Insert item on recipe view
         insertItem(item);
     } else {
-        
+
     }
 };
 
@@ -100,5 +100,12 @@ elements.list.addEventListener('click', event => {
     } else if (event.target.closest('.btn-insert')) {
         const item = state.list.items.find(item => item.id === parseInt(itemId, 10));
         controlRecipe(item);
+    }
+});
+
+elements.btnClean.addEventListener('click', () => {
+    if (state.recipe) {
+        clearRecipe();
+        state.recipe.clearItems();
     }
 });

@@ -12,3 +12,7 @@ const insertItem = item => {
 
     elements.recipe.insertAdjacentHTML('beforeend', markup);
 };
+
+const clearRecipe = () => {
+    elements.recipe.innerHTML = '';
+}

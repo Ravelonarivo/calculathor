@@ -7,4 +7,8 @@ class Recipe {
     addItem(item) {
         this.items.push(item);
     }
+
+    clearItems() {
+        this.items = [];
+    }
 }
