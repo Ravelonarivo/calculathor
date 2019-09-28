@@ -103,7 +103,7 @@ elements.list.addEventListener('click', event => {
     }
 });
 
-elements.btnClean.addEventListener('click', () => {
+elements.btnClear.addEventListener('click', () => {
     if (state.recipe) {
         clearRecipe();
         state.recipe.clearItems();
