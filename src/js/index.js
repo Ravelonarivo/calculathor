@@ -10,14 +10,7 @@ const controlIngredient = () => {
     if (elements.ingredientName.value && elements.ingredientPrice.value) {
 
         // Generate id
-        let id = null;
-        if (state.list) {
-            id = state.list.items.length 
-            ? state.list.items[state.list.items.length - 1].id + 1
-            : 1;
-        } else {
-            id = 1;
-        }
+        const id = state.ingredient ? state.ingredient.id + 1 : 1;
     
 
         // Create Ingredient
