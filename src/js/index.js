@@ -96,6 +96,33 @@ elements.list.addEventListener('click', event => {
     }
 });
 
+
+// Manage change on list view
+elements.list.addEventListener('input', event => {
+    const itemID = event.target.closest('.list__item')
+    ? event.target.closest('.list__item').dataset.itemid
+    : 0;
+
+    let newValue = null;
+    let className = null;
+    if (event.target.matches('.list__item__name')) {
+        newValue = event.target.closest('.list__item__name').value;       
+        className = `recipe__name__${itemID}`;
+    } else if (event.target.matches('.list__item__price')) {
+        newValue = event.target.closest('.list__item__price').value;
+        className = `recipe__price__${itemID}`;
+    } else if (event.target.matches('.list__item__unit')) {
+        newValue = event.target.closest('.list__item__unit').value;
+        className = `recipe__unit__${itemID}`;
+    }
+
+    // Update list item
+    state.list.updateItem(itemID, newValue);
+
+    // Update Recipe View
+    updateItem(className, newValue); 
+});
+
 elements.btnClear.addEventListener('click', () => {
     if (state.recipe) {
         clearRecipe();
