@@ -4,7 +4,7 @@ class Ingredient {
         this._name = name;
         this._price = price;
         this._unit = unit;
-        this._quantity = 1;
+        this._quantity = 0;
         this._total = 0;
     } 
     
@@ -45,7 +45,11 @@ class Ingredient {
     }
 
     set total(value) {
-        this.total = value;
+        this._total = value;
+    }
+
+    calculateTotal() {
+        this._total = (this._quantity * this._price) / this._unit === 'kg' ? 1000 : 1
     }
 }
 
