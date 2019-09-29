@@ -85,13 +85,19 @@ elements.list.addEventListener('click', event => {
     
     if (event.target.closest('.btn-close')) {
         // Get itemIndex
-        const itemIndex = state.list.items.findIndex(item => item.id === parseInt(itemId, 10));
-        
+        let itemIndex = state.list.items.findIndex(item => item.id === parseInt(itemId, 10));   
         // Remove item from list
         state.list.removeItem(itemIndex);
-        
         // Remove item from list view
         removeItem(itemId);
+
+        //Remove recipe item 
+        if (state.recipe && state.recipe.items.length > 0) {
+            itemIndex = state.recipe.items.findIndex(item => item.id === parseInt(itemId, 10))
+            state.recipe.removeItem(itemIndex);
+            deleteItem(itemId);
+        }
+        
     } else if (event.target.closest('.btn-insert')) {
         const item = state.list.items.find(item => item.id === parseInt(itemId, 10));
         controlRecipe(item);

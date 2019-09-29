@@ -12,6 +12,10 @@ class Recipe {
         this.items = [];
     }
 
+    removeItem(index) {
+        this.items.splice(index, 1);
+    }
+
     editItem(itemID, newValue, isItQuantity = false) {
         const item = this.items.find(item => item.id === parseInt(itemID, 10));     
         if (item) {
