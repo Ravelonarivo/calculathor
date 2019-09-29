@@ -11,10 +11,9 @@ class List {
         this.items.splice(index, 1);
     }
 
-    updateItem(itemID, newValue) {
+    editItem(itemID, newValue) {
         const item = this.items.find(item => item.id === parseInt(itemID, 10));
-        
-        if (parseFloat(newValue)) {
+        if (parseFloat(newValue) || newValue === 0) {
             item.price = parseFloat(newValue);
         } else if (newValue === 'kg' || newValue === 'piece') {
             item.unit = newValue;

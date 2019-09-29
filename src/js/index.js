@@ -109,21 +109,25 @@ elements.list.addEventListener('input', event => {
         newValue = event.target.closest('.list__item__name').value;       
         className = `recipe__name__${itemID}`;
     } else if (event.target.matches('.list__item__price')) {
-        newValue = event.target.closest('.list__item__price').value;
+        newValue = event.target.closest('.list__item__price').value
+        ? event.target.closest('.list__item__price').value
+        : 0;
         className = `recipe__price__${itemID}`;
     } else if (event.target.matches('.list__item__unit')) {
         newValue = event.target.closest('.list__item__unit').value;
         className = `recipe__unit__${itemID}`;
     }
-
-    // Update list item
-    state.list.updateItem(itemID, newValue);
-
-    // Update recipe item
-    state.recipe.updateItem(itemID, newValue);
     
-    // Update Recipe View
-    updateItem(className, newValue); 
+    // Edit list item
+    state.list.editItem(itemID, newValue);
+
+    // Edit recipe item
+    if (state.recipe) {
+        state.recipe.editItem(itemID, newValue);
+    }
+    
+    // Edit Recipe View
+    editItem(className, newValue); 
 });
 
 elements.btnClear.addEventListener('click', () => {
