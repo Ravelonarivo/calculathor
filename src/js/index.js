@@ -119,6 +119,9 @@ elements.list.addEventListener('input', event => {
     // Update list item
     state.list.updateItem(itemID, newValue);
 
+    // Update recipe item
+    state.recipe.updateItem(itemID, newValue);
+    
     // Update Recipe View
     updateItem(className, newValue); 
 });
