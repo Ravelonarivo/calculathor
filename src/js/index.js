@@ -132,6 +132,8 @@ elements.list.addEventListener('input', event => {
     editItem(className, newValue); 
 });
 
+
+// Clear recipe 
 elements.btnClear.addEventListener('click', () => {
     if (state.recipe) {
         clearRecipe();
