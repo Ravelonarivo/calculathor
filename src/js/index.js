@@ -28,11 +28,12 @@ const controlList = () => {
             state.list = new List();
         }
 
+        const ingredient = Object.create(state.ingredient);
         // Add item to the list
-        state.list.addItem(state.ingredient);
+        state.list.addItem(ingredient);
 
         // Add item on the view
-        addItem(state.ingredient);
+        addItem(ingredient);
     }
 };
 
@@ -48,11 +49,12 @@ const controlRecipe = item => {
     // Test if item doesn't exist in the items
     const found = state.recipe.items.find(el => el.id === item.id);
     if (!found) {
+        const ingredient = Object.create(item);
         // Add item to recipe 
-        state.recipe.addItem(item);
+        state.recipe.addItem(ingredient);
 
         // Insert item on recipe view
-        insertItem(item);
+        insertItem(ingredient);
     } else {
 
     }
