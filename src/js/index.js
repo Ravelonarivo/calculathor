@@ -12,7 +12,6 @@ const controlIngredient = () => {
         // Generate id
         const id = state.ingredient ? state.ingredient.id + 1 : 1;
     
-
         // Create Ingredient
         state.ingredient = new Ingredient(id, elements.ingredientName.value, elements.ingredientPrice.value, elements.ingredientUnit.value);
     }
@@ -97,7 +96,7 @@ elements.list.addEventListener('click', event => {
             state.recipe.removeItem(itemIndex);
             deleteItem(itemId);
         }
-        
+
     } else if (event.target.closest('.btn-insert')) {
         const item = state.list.items.find(item => item.id === parseInt(itemId, 10));
         controlRecipe(item);
