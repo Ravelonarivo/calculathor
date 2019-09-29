@@ -21,6 +21,7 @@ class Recipe {
         if (item) {
             if (isItQuantity) {
                 item.quantity = parseFloat(newValue);
+                item.calculateTotal();
             } else if (parseFloat(newValue) || newValue === 0) {
                 item.price = parseFloat(newValue);
             } else if (newValue === 'kg' || newValue === 'piece') {

@@ -6,7 +6,7 @@ const insertItem = item => {
         <td><input class="recipe__quantity form-control form-control-sm col-md-4" type="number" value="${item.quantity}" min="0"></td>
         <td class="recipe__unit__${item.id}">${ item.unit === 'kg' ? '1000g' : 'piece' }</td>
         <td class="recipe__price__${item.id}">${ item.price }</td>
-        <td>${ item.total }</td>
+        <td class="recipe__total__${item.id}">${ item.total }</td>
     </tr>
     `;
 

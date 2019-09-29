@@ -133,7 +133,7 @@ elements.list.addEventListener('input', event => {
         state.recipe.editItem(itemID, newValue);
     }
     
-    // Edit Recipe View
+    // Edit recipe View
     editItem(className, newValue); 
 });
 
@@ -144,11 +144,17 @@ elements.recipe.addEventListener('input', event => {
     ? event.target.closest('.recipe__item').dataset.recipeid
     : 0;
 
-    const newValue = event.target.matches('.recipe__quantity')
+    let newValue = event.target.matches('.recipe__quantity')
     ? event.target.closest('.recipe__quantity').value
     : 0
          
+    // Edit recipe item 
     state.recipe.editItem(recipeID, newValue, true);
+
+    // Edit recipe view
+    const className = `recipe__total__${recipeID}`;
+    const item = state.recipe.items.find(item => item.id === parseInt(recipeID, 10));
+    editItem(className, item.total);
 });
 
 
