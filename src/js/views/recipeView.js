@@ -1,7 +1,7 @@
 const insertItem = item => {
 
     const markup = `
-    <tr class="recipe__item" data-itemid="${item.id}">
+    <tr class="recipe__item" data-recipeid="${item.id}">
         <td class="recipe__name__${item.id}">${item.name}</td>
         <td><input class="recipe__quantity form-control form-control-sm col-md-4" type="number" value="${item.quantity}" min="0"></td>
         <td class="recipe__unit__${item.id}">${ item.unit === 'kg' ? '1000g' : 'piece' }</td>
