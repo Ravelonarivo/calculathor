@@ -5,5 +5,6 @@ const elements = {
     ingredientValidateBtn: document.querySelector('.ingredient__validate--btn'),
     list: document.querySelector('.list'),
     recipe: document.querySelector('.recipe'),
-    btnClear: document.querySelector('.btn-clear')
+    btnClear: document.querySelector('.btn-clear'),
+    recipeTotalCost: document.querySelector('.recipe__totalcost')
 };

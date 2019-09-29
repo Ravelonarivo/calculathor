@@ -151,10 +151,14 @@ elements.recipe.addEventListener('input', event => {
     // Edit recipe item 
     state.recipe.editItem(recipeID, newValue, true);
 
+    // Calculate total cost
+    state.recipe.calculateTotalCost();
+
     // Edit recipe view
     const className = `recipe__total__${recipeID}`;
     const item = state.recipe.items.find(item => item.id === parseInt(recipeID, 10));
     editItem(className, item.total);
+    updateTotalCost(state.recipe.total);
 });
 
 

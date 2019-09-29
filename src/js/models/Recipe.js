@@ -31,4 +31,8 @@ class Recipe {
             }
         }        
     }
+
+    calculateTotalCost() {
+        this.total = this.items.reduce((acc, item) => acc + item.total, 0);
+    }
 }

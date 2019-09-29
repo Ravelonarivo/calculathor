@@ -30,3 +30,7 @@ const deleteItem = itemId => {
     const item = document.querySelector(`[data-recipeid="${itemId}"]`);
     item.parentNode.removeChild(item);
 };
+
+const updateTotalCost = totalCost => {
+    elements.recipeTotalCost.textContent = totalCost;
+}
