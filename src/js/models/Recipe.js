@@ -33,6 +33,6 @@ class Recipe {
     }
 
     calculateTotalCost() {
-        this.total = this.items.reduce((acc, item) => acc + item.total, 0);
+        this.total = this.items.reduce((acc, item) => acc + item.total, 0).toFixed(2);
     }
 }
