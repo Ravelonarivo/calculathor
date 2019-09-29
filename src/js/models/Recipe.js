@@ -12,10 +12,12 @@ class Recipe {
         this.items = [];
     }
 
-    editItem(itemID, newValue) {
+    editItem(itemID, newValue, isItQuantity = false) {
         const item = this.items.find(item => item.id === parseInt(itemID, 10));     
         if (item) {
-            if (parseFloat(newValue) || newValue === 0) {
+            if (isItQuantity) {
+                item.quantity = parseFloat(newValue);
+            } else if (parseFloat(newValue) || newValue === 0) {
                 item.price = parseFloat(newValue);
             } else if (newValue === 'kg' || newValue === 'piece') {
                 item.unit = newValue;
