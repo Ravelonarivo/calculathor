@@ -49,7 +49,7 @@ class Ingredient {
     }
 
     calculateTotal() {
-        this._total = ((this._quantity ? this._quantity : 0)  * this._price) / (this._unit === 'kg' ? 1000 : 1);
+        this._total = (((this._quantity ? this._quantity : 0)  * this._price) / (this._unit === 'kg' ? 1000 : 1)).toFixed(2);
     }
 }
 

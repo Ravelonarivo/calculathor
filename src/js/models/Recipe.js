@@ -24,15 +24,17 @@ class Recipe {
                 item.calculateTotal();
             } else if (parseFloat(newValue) || newValue === 0) {
                 item.price = parseFloat(newValue);
+                item.calculateTotal();
             } else if (newValue === 'kg' || newValue === 'piece') {
                 item.unit = newValue;
+                item.calculateTotal();
             } else {
                 item.name = newValue;
             }
-        }        
+        }       
     }
 
     calculateTotalCost() {
-        this.total = this.items.reduce((acc, item) => acc + item.total, 0).toFixed(2);
+        this.total = this.items.reduce((acc, item) => acc + parseFloat(item.total), 0).toFixed(2);
     }
 }
