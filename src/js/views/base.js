@@ -6,5 +6,6 @@ const elements = {
     list: document.querySelector('.list'),
     recipe: document.querySelector('.recipe'),
     btnClear: document.querySelector('.btn-clear'),
-    recipeTotalCost: document.querySelector('.recipe__totalcost')
+    recipeTotalCost: document.querySelector('.recipe__totalcost'),
+    recipeAlert: document.querySelector('.recipe__alert')
 };
