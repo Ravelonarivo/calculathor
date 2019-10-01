@@ -37,7 +37,7 @@ const updateTotalCost = totalCost => {
 
 const alert = item => {
     elements.recipeAlert.innerHTML = `
-        <div class="col-6 alert alert-danger" role="alert">
+        <div class="alert alert-danger" role="alert">
             ${item.name} is already in the recipe!
         </div>
     `;
