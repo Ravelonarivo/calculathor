@@ -34,15 +34,3 @@ const deleteItem = itemId => {
 const updateTotalCost = totalCost => {
     elements.recipeTotalCost.textContent = totalCost;
 }
-
-const alert = item => {
-    elements.recipeAlert.innerHTML = `
-        <div class="alert alert-danger" role="alert">
-            ${item.name} is already in the recipe!
-        </div>
-    `;
-
-    setTimeout(() => {
-        elements.recipeAlert.innerHTML = '';
-    }, 5000);
-}

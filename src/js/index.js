@@ -55,6 +55,7 @@ const controlRecipe = item => {
         // Insert item on recipe view
         insertItem(ingredient);
     } else {
+        // Show alert
         alert(item)
     }
 };
