@@ -30,3 +30,9 @@ const removeItem = itemId => {
     item.parentNode.removeChild(item);
 };
 
+const getItemId = event => {
+    return event.target.closest('.list__item') 
+    ? event.target.closest('.list__item').dataset.itemid
+    : 0;
+}
+

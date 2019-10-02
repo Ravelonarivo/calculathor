@@ -79,9 +79,7 @@ elements.ingredientValidateBtn.addEventListener('click', () => {
 elements.list.addEventListener('click', event => {
 
     // Get itemId
-    const itemId = event.target.closest('.list__item') 
-    ? event.target.closest('.list__item').dataset.itemid
-    : 0;
+    const itemId = getItemId(event);
     
     if (event.target.closest('.btn-close')) {
         // Get itemIndex
@@ -116,9 +114,8 @@ elements.list.addEventListener('click', event => {
 
 // Manage change on list view
 elements.list.addEventListener('input', event => {
-    const itemID = event.target.closest('.list__item')
-    ? event.target.closest('.list__item').dataset.itemid
-    : 0;
+    // Get item id
+    const itemID = getItemId(event);
 
     let newValue = null;
     let className = null;
