@@ -108,7 +108,7 @@ elements.list.addEventListener('click', event => {
         }
 
     } else if (event.target.closest('.btn-insert')) {
-        const item = state.list.items.find(item => item.id === parseInt(itemId, 10));
+        const item = state.list.getItem(itemId);
         controlRecipe(item);
     }
 });

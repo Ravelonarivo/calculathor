@@ -26,4 +26,8 @@ class List {
     getItemIndex(itemId) {
         return this.items.findIndex(item => item.id === parseInt(itemId, 10));
     }
+
+    getItem(itemId) {
+        return this.items.find(item => item.id === parseInt(itemId, 10))
+    }
 }
