@@ -30,4 +30,9 @@ class List {
     getItem(itemId) {
         return this.items.find(item => item.id === parseInt(itemId, 10));
     }
+
+    findItem(itemName) {
+        const re = new RegExp(`^${itemName}$`, 'i');
+        return this.items.filter(item => re.test(item.name) === true);
+    }
 }

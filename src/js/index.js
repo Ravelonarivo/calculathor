@@ -7,13 +7,22 @@ window.state = state;
 const controlIngredient = () => {
 
     // Add Ingredient
-    if (elements.ingredientName.value && elements.ingredientPrice.value) {
+    const ingredientName = elements.ingredientName.value.trim();
+    if (ingredientName !== '' && elements.ingredientPrice.value) {
+        
+        // Find item from list
+        const item = state.list 
+        ? state.list.findItem(ingredientName)
+        : [];
 
-        // Generate id
-        const id = state.ingredient ? state.ingredient.id + 1 : 1;
-    
-        // Create Ingredient
-        state.ingredient = new Ingredient(id, elements.ingredientName.value, elements.ingredientPrice.value, elements.ingredientUnit.value);
+        // Create new Ingredient
+        if (item.length === 0) {
+            // Generate id
+            const id = state.ingredient ? state.ingredient.id + 1 : 1;
+        
+            // Create Ingredient
+            state.ingredient = new Ingredient(id, ingredientName, elements.ingredientPrice.value, elements.ingredientUnit.value);
+        }
     } else {
         alert();
     }
@@ -23,18 +32,28 @@ const controlIngredient = () => {
 // List controler
 const controlList = () => {
 
-    if (elements.ingredientName.value && elements.ingredientPrice.value) {
+    const ingredientName = elements.ingredientName.value.trim();
+    if (ingredientName && elements.ingredientPrice.value) {
         // Create new list
         if (!state.list) {
             state.list = new List();
         }
 
-        const ingredient = Object.create(state.ingredient);
-        // Add item to the list
-        state.list.addItem(ingredient);
+        // Find item
+        const item = state.list.findItem(ingredientName);
+        if (item.length === 0) {
+            // Create a copy of ingredient
+            const ingredient = Object.create(state.ingredient);
+            // Add item to the list
+            state.list.addItem(ingredient);
 
-        // Add item on the view
-        addItem(ingredient);
+            // Add item on the view
+            addItem(ingredient);
+
+            cleanInputs();
+        } else {
+            listAlert(ingredientName);
+        }
     }
 };
 
@@ -66,14 +85,13 @@ document.addEventListener('keypress', event => {
     if (event.keyCode === 13 || event.which === 13) {
         controlIngredient();
         controlList();
-        cleanInputs();
+        
     }
 });
 
 elements.ingredientValidateBtn.addEventListener('click', () => {
     controlIngredient();
     controlList();
-    cleanInputs();
 });
 
 

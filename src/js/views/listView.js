@@ -49,3 +49,11 @@ const getNewValue = (event, label) => {
     return newValue;
 };
 
+const listAlert = itemName => {
+    elements.recipeAlert.innerHTML = `
+        <div class="alert alert-danger" role="alert">
+            ${itemName} is already into the list!
+        </div>
+    `;
+};
+
