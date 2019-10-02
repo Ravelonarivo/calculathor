@@ -28,6 +28,6 @@ class List {
     }
 
     getItem(itemId) {
-        return this.items.find(item => item.id === parseInt(itemId, 10))
+        return this.items.find(item => item.id === parseInt(itemId, 10));
     }
 }
