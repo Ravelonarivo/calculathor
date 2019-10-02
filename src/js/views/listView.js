@@ -36,3 +36,16 @@ const getItemId = event => {
     : 0;
 };
 
+const getNewValue = (event, label) => {
+    let newValue = null;
+    if (label === 'price') {
+        newValue = event.target.closest(`.list__item__${label}`).value
+        ? event.target.closest(`.list__item__${label}`).value
+        : 0;
+    } else {
+        newValue = event.target.closest(`.list__item__${label}`).value;
+    }
+
+    return newValue;
+};
+

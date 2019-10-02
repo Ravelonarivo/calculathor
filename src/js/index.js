@@ -120,15 +120,13 @@ elements.list.addEventListener('input', event => {
     let newValue = null;
     let className = null;
     if (event.target.matches('.list__item__name')) {
-        newValue = event.target.closest('.list__item__name').value;       
+        newValue = getNewValue(event, 'name');       
         className = generateRecipeClassName('name', itemID);
     } else if (event.target.matches('.list__item__price')) {
-        newValue = event.target.closest('.list__item__price').value
-        ? event.target.closest('.list__item__price').value
-        : 0;
+        newValue = getNewValue(event, 'price');
         className = generateRecipeClassName('price', itemID);
     } else if (event.target.matches('.list__item__unit')) {
-        newValue = event.target.closest('.list__item__unit').value;
+        newValue = getNewValue(event, 'unit');;
         className = generateRecipeClassName('unit', itemID);
     }
     
