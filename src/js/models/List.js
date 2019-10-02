@@ -12,7 +12,7 @@ class List {
     }
 
     editItem(itemID, newValue) {
-        const item = this.items.find(item => item.id === parseInt(itemID, 10));
+        const item = this.getItem(itemID);
         if (parseFloat(newValue) || newValue === 0) {
             item.price = parseFloat(newValue);
         } else if (newValue === 'kg' || newValue === 'piece') {
