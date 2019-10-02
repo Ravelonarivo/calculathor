@@ -16,13 +16,13 @@ const alert = item => {
             <div class="alert alert-danger" role="alert">
                 ${item.name} is already in the recipe!
             </div>
-        `
+        `;
     } else {
         elements.recipeAlert.innerHTML = `
             <div class="alert alert-danger" role="alert">
                 Please fill all inputs!
             </div>
-        `
+        `;
     }
 
     setTimeout(() => {
