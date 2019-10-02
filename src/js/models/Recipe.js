@@ -17,7 +17,7 @@ class Recipe {
     }
 
     editItem(itemID, newValue, isItQuantity = false) {
-        const item = this.items.find(item => item.id === parseInt(itemID, 10));     
+        const item = this.getItem(itemID);     
         if (item) {
             if (isItQuantity) {
                 item.quantity = parseFloat(newValue);
