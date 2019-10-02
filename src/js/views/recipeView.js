@@ -38,3 +38,10 @@ const updateTotalCost = totalCost => {
 const generateRecipeClassName = (label, itemID) => {
     return `recipe__${label}__${itemID}`;
 }
+
+const getRecipeId = event => {
+    return event.target.closest('.recipe__item')
+    ? event.target.closest('.recipe__item').dataset.recipeid
+    : 0;
+};
+

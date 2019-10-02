@@ -156,9 +156,7 @@ elements.list.addEventListener('input', event => {
 
 // Manage change on recipe view
 elements.recipe.addEventListener('input', event => {
-    const recipeID = event.target.closest('.recipe__item')
-    ? event.target.closest('.recipe__item').dataset.recipeid
-    : 0;
+    const recipeID = getRecipeId(event);
 
     let newValue = event.target.matches('.recipe__quantity')
     ? event.target.closest('.recipe__quantity').value
