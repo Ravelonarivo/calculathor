@@ -148,7 +148,7 @@ elements.list.addEventListener('input', event => {
         // Edit recipe View
         editItem(className, newValue); 
         className = `recipe__total__${itemID}`;
-        const item = state.recipe.items.find(item => item.id === parseInt(itemID, 10));
+        const item = state.recipe.getItem(itemID);
         if (item) {
             editItem(className, item.total);
             updateTotalCost(state.recipe.total);
