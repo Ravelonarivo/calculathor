@@ -9,19 +9,3 @@ const elements = {
     recipeTotalCost: document.querySelector('.recipe__totalcost'),
     recipeAlert: document.querySelector('.recipe__alert')
 };
-
-const alert = item => {
-    if (item) {
-        
-    } else {
-        elements.recipeAlert.innerHTML = `
-            <div class="alert alert-danger" role="alert">
-                Please fill all inputs!
-            </div>
-        `;
-    }
-
-    setTimeout(() => {
-        elements.recipeAlert.innerHTML = '';
-    }, 5000);
-}

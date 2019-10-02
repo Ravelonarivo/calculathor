@@ -24,7 +24,7 @@ const controlIngredient = () => {
             state.ingredient = new Ingredient(id, ingredientName, elements.ingredientPrice.value, elements.ingredientUnit.value);
         }
     } else {
-        alert();
+        ingredientAlert();
     }
 };
 
@@ -77,7 +77,7 @@ const controlRecipe = item => {
         insertItem(ingredient);
     } else {
         // Show alert
-        alert(item)
+        recipeAlert(item)
     }
 };
 

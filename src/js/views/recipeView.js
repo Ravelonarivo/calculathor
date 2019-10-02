@@ -45,3 +45,15 @@ const getRecipeId = event => {
     : 0;
 };
 
+const recipeAlert = item => {
+    elements.recipeAlert.innerHTML = `
+        <div class="alert alert-danger" role="alert">
+            ${item.name} is already into the recipe!
+        </div>
+    `;
+
+    setTimeout(() => {
+        elements.recipeAlert.innerHTML = '';
+    }, 5000);
+};
+
