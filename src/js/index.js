@@ -85,7 +85,7 @@ elements.list.addEventListener('click', event => {
     
     if (event.target.closest('.btn-close')) {
         // Get itemIndex
-        let itemIndex = state.list.items.findIndex(item => item.id === parseInt(itemId, 10));   
+        let itemIndex = state.list.getItemIndex(itemId);   
         // Remove item from list
         state.list.removeItem(itemIndex);
         // Remove item from list view
