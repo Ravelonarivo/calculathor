@@ -14,6 +14,8 @@ const controlIngredient = () => {
     
         // Create Ingredient
         state.ingredient = new Ingredient(id, elements.ingredientName.value, elements.ingredientPrice.value, elements.ingredientUnit.value);
+    } else {
+        alert();
     }
 };
 
