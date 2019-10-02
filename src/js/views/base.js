@@ -12,11 +12,7 @@ const elements = {
 
 const alert = item => {
     if (item) {
-        elements.recipeAlert.innerHTML = `
-            <div class="alert alert-danger" role="alert">
-                ${item.name} is already in the recipe!
-            </div>
-        `;
+        
     } else {
         elements.recipeAlert.innerHTML = `
             <div class="alert alert-danger" role="alert">
