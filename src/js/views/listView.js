@@ -55,5 +55,9 @@ const listAlert = itemName => {
             ${itemName} is already into the list!
         </div>
     `;
+
+    setTimeout(() => {
+        elements.recipeAlert.innerHTML = '';
+    }, 5000);
 };
 
