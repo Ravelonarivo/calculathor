@@ -34,6 +34,10 @@ class Recipe {
         }       
     }
 
+    getItemIndex(itemId) {
+        return this.items.findIndex(item => item.id === parseInt(itemId, 10));
+    }
+    
     calculateTotalCost() {
         this.total = this.items.reduce((acc, item) => acc + parseFloat(item.total), 0).toFixed(2);
     }
