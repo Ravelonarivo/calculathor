@@ -34,3 +34,7 @@ const deleteItem = itemId => {
 const updateTotalCost = totalCost => {
     elements.recipeTotalCost.textContent = totalCost;
 }
+
+const generateRecipeClassName = (label, itemID) => {
+    return `recipe__${label}__${itemID}`;
+}

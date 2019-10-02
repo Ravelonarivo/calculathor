@@ -124,15 +124,15 @@ elements.list.addEventListener('input', event => {
     let className = null;
     if (event.target.matches('.list__item__name')) {
         newValue = event.target.closest('.list__item__name').value;       
-        className = `recipe__name__${itemID}`;
+        className = generateRecipeClassName('name', itemID);
     } else if (event.target.matches('.list__item__price')) {
         newValue = event.target.closest('.list__item__price').value
         ? event.target.closest('.list__item__price').value
         : 0;
-        className = `recipe__price__${itemID}`;
+        className = generateRecipeClassName('price', itemID);
     } else if (event.target.matches('.list__item__unit')) {
         newValue = event.target.closest('.list__item__unit').value;
-        className = `recipe__unit__${itemID}`;
+        className = generateRecipeClassName('unit', itemID);
     }
     
     // Edit list item
@@ -147,7 +147,7 @@ elements.list.addEventListener('input', event => {
 
         // Edit recipe View
         editItem(className, newValue); 
-        className = `recipe__total__${itemID}`;
+        className = generateRecipeClassName('total', itemID);
         const item = state.recipe.getItem(itemID);
         if (item) {
             editItem(className, item.total);
@@ -174,7 +174,7 @@ elements.recipe.addEventListener('input', event => {
     state.recipe.calculateTotalCost();
 
     // Edit recipe view
-    const className = `recipe__total__${recipeID}`;
+    const className = generateRecipeClassName('total', recipeID);
     const item = state.recipe.getItem(recipeID);
     editItem(className, item.total);
     updateTotalCost(state.recipe.total);
