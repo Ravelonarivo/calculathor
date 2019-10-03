@@ -230,7 +230,8 @@ elements.btnClear.addEventListener('click', () => {
     }
 });
 
-removeItemFromRecipe = itemId => {
+
+const removeItemFromRecipe = itemId => {
     // get itemIndex
     itemIndex = state.recipe.getItemIndex(itemId);
     // remove item from recipe 
@@ -243,4 +244,4 @@ removeItemFromRecipe = itemId => {
 
     // update total cost on recipe view
     updateTotalCost(state.recipe.total);
-}
+};
