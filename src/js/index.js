@@ -7,7 +7,7 @@ window.state = state;
 const controlIngredient = () => {
 
     // Add Ingredient
-    const ingredientName = elements.ingredientName.value.trim();
+    const ingredientName = formatingredientName(elements.ingredientName.value);
     if (ingredientName !== '' && elements.ingredientPrice.value) {
         
         // Find item from list
@@ -32,7 +32,7 @@ const controlIngredient = () => {
 // List controler
 const controlList = () => {
 
-    const ingredientName = elements.ingredientName.value.trim();
+    const ingredientName = formatingredientName(elements.ingredientName.value);
     if (ingredientName && elements.ingredientPrice.value) {
         // Create new list
         if (!state.list) {
@@ -244,4 +244,11 @@ const removeItemFromRecipe = itemId => {
 
     // update total cost on recipe view
     updateTotalCost(state.recipe.total);
+};
+
+const formatingredientName = name => {
+    return name.trim()
+               .split(' ')
+               .filter(item => item !== '')
+               .join(' ');
 };
