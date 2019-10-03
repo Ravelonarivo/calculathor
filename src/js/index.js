@@ -176,21 +176,23 @@ elements.list.addEventListener('input', event => {
 elements.recipe.addEventListener('input', event => {
     const recipeID = getRecipeId(event);
 
-    let newValue = event.target.matches('.recipe__quantity')
-    ? event.target.closest('.recipe__quantity').value
-    : 0
-         
-    // Edit recipe item 
-    state.recipe.editItem(recipeID, newValue, true);
+    if (event.target.matches('.recipe__quantity')) {
+        let newValue = event.target.matches('.recipe__quantity')
+        ? event.target.closest('.recipe__quantity').value
+        : 0
+            
+        // Edit recipe item 
+        state.recipe.editItem(recipeID, newValue, true);
 
-    // Calculate total cost
-    state.recipe.calculateTotalCost();
+        // Calculate total cost
+        state.recipe.calculateTotalCost();
 
-    // Edit recipe view
-    const className = generateRecipeClassName('total', recipeID);
-    const item = state.recipe.getItem(recipeID);
-    editItem(className, item.total);
-    updateTotalCost(state.recipe.total);
+        // Edit recipe view
+        const className = generateRecipeClassName('total', recipeID);
+        const item = state.recipe.getItem(recipeID);
+        editItem(className, item.total);
+        updateTotalCost(state.recipe.total);
+    }
 });
 
 
