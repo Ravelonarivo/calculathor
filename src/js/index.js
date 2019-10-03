@@ -85,7 +85,7 @@ const controlRecipe = item => {
 };
 
 document.addEventListener('keypress', event => {
-    if (event.keyCode === 13 || event.which === 13) {
+    if ((event.keyCode === 13 || event.which === 13) && event.target.closest('.ingredient__formular')) {
         controlIngredient();
         controlList();
         
