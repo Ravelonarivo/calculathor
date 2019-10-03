@@ -5,7 +5,7 @@ class Ingredient {
         this._price = price;
         this._unit = unit;
         this._quantity = 0;
-        this._total = 0;
+        this._total = (0).toFixed(2);
         this._enable;
     } 
     
