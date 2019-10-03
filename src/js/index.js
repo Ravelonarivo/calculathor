@@ -115,7 +115,7 @@ elements.list.addEventListener('click', event => {
         //Remove recipe item and update total cost
         if (state.recipe && state.recipe.items.length > 0) {
             // get itemIndex
-            itemIndex = state.recipe.getItemIndex(item.id);
+            itemIndex = state.recipe.getItemIndex(itemId);
             // remove item from recipe 
             state.recipe.removeItem(itemIndex);
             // remove item from recipe view
