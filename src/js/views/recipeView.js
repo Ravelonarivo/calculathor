@@ -59,7 +59,7 @@ const recipeAlert = item => {
     }, 5000);
 };
 
-const changeQuantityView = (isChecked, item) => {
+const toggleQuantity = (isChecked, item) => {
     const quantityInput = document.querySelector(`.recipe__quantity__${item.id}`);
     if (isChecked) {
         quantityInput.removeAttribute('disabled');

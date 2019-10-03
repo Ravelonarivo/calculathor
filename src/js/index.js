@@ -210,7 +210,7 @@ elements.recipe.addEventListener('input', event => {
             state.recipe.decreaseTotalCost(item.total);
         }
 
-        changeQuantityView(isChecked, item);
+        toggleQuantity(isChecked, item);
         updateTotalCost(state.recipe.total);
     }
 });
