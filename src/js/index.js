@@ -67,7 +67,7 @@ const controlRecipe = item => {
     }
 
     // Test if item doesn't exist in the items
-    const found = state.recipe.items.find(el => el.id === item.id);
+    const found = state.recipe.getItem(item.id);
     if (!found) {
         const ingredient = Object.create(item);
         // Check item model
