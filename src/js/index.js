@@ -70,8 +70,9 @@ const controlRecipe = item => {
     const found = state.recipe.items.find(el => el.id === item.id);
     if (!found) {
         const ingredient = Object.create(item);
-        // check item
+        // Check item model
         ingredient.check();
+
         // Add item to recipe 
         state.recipe.addItem(ingredient);
 
@@ -195,12 +196,17 @@ elements.recipe.addEventListener('input', event => {
         editItem(className, item.total);
         updateTotalCost(state.recipe.total);
     } else if (event.target.matches('.recipe__checkbox')) {
+        // Check if item is checked on the view
         const isChecked = event.target.closest('.recipe__checkbox').checked;
         if (isChecked) {
+            // Check item model
             item.check();
+            // Increase total cost
             state.recipe.increaseTotalCost(item.total);
         } else {
+            // Uncheck item model
             item.uncheck();
+            // Decrease item model
             state.recipe.decreaseTotalCost(item.total);
         }
 
