@@ -2,11 +2,13 @@ const insertItem = item => {
 
     const markup = `
     <tr class="recipe__item" data-recipeid="${item.id}">
-        <td class="recipe__name__${item.id}">${item.name}</td>
-        <td><input class="recipe__quantity form-control form-control-sm col-md-4" type="number" value="${item.quantity}" min="0"></td>
-        <td class="recipe__unit__${item.id}">${ item.unit === 'kg' ? '1000g' : 'piece' }</td>
-        <td class="recipe__price__${item.id}">${ item.price }</td>
-        <td class="recipe__total__${item.id}">${ item.total }</td>
+        <td style="width: 5%" class="recipe__checkbox__${item.id}"><input type="checkbox" checked></td>
+        <td style="width: 35%" class="recipe__name__${item.id}">${item.name}</td>
+        <td style="width: 20%"><input class="recipe__quantity form-control form-control-sm" type="number" value="${item.quantity}" min="0"></td>
+        <td style="width: 10%" class="recipe__unit__${item.id}">${ item.unit === 'kg' ? '1000g' : 'piece' }</td>
+        <td style="width: 10%" class="recipe__price__${item.id}">${ item.price }</td>
+        <td style="width: 15%" class="recipe__total__${item.id}">${ item.total }</td>
+        <td style="width: 5%" class="recipe__bin__${item.id}"><button type="button" class="btn btn-outline-danger btn-sm"><i class="icon ion-md-trash"></i></button></td>
     </tr>
     `;
 
