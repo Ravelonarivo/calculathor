@@ -26,6 +26,14 @@ body {
     display: block;
 }
 
+.btn-remove {
+    visibility: hidden;
+}
+
+.recipe__item:hover .btn-remove {
+    visibility: visible;
+}
+
 .list {
     height: 400px;
     overflow-x: hidden;
