@@ -39,10 +39,20 @@ class Recipe {
     }
 
     calculateTotalCost() {
-        this.total = this.items.reduce((acc, item) => acc + parseFloat(item.total), 0).toFixed(2);
+        this.total = this.items
+                    .filter(item => item.enable === true)
+                    .reduce((acc, item) => acc + parseFloat(item.total), 0).toFixed(2);
     }
 
     getItem(itemID) {
         return this.items.find(item => item.id === parseInt(itemID, 10));
+    }
+
+    increaseTotalCost(itemTotal) {
+        this.total = (parseFloat(this.total) + parseFloat(itemTotal)).toFixed(2);  
+    }
+
+    decreaseTotalCost(itemTotal) {
+        this.total = (parseFloat(this.total) - parseFloat(itemTotal)).toFixed(2);
     }
 }

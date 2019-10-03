@@ -70,6 +70,8 @@ const controlRecipe = item => {
     const found = state.recipe.items.find(el => el.id === item.id);
     if (!found) {
         const ingredient = Object.create(item);
+        // check item
+        ingredient.check();
         // Add item to recipe 
         state.recipe.addItem(ingredient);
 
@@ -109,10 +111,10 @@ elements.list.addEventListener('click', event => {
         // Remove item from list view
         removeItem(itemId);
 
-        //Remove recipe item and upate total cost
+        //Remove recipe item and update total cost
         if (state.recipe && state.recipe.items.length > 0) {
             // get itemIndex
-            itemIndex = state.recipe.getItemIndex(item => item.id === parseInt(itemId, 10))
+            itemIndex = state.recipe.getItemIndex(item.id);
             // remove item from recipe 
             state.recipe.removeItem(itemIndex);
             // remove item from recipe view
@@ -175,10 +177,11 @@ elements.list.addEventListener('input', event => {
 // Manage change on recipe view
 elements.recipe.addEventListener('input', event => {
     const recipeID = getRecipeId(event);
+    const item = state.recipe.getItem(recipeID);
 
-    if (event.target.matches('.recipe__quantity')) {
-        let newValue = event.target.matches('.recipe__quantity')
-        ? event.target.closest('.recipe__quantity').value
+    if (event.target.matches(`.recipe__quantity__${item.id}`)) {
+        const newValue = event.target.matches(`.recipe__quantity__${item.id}`)
+        ? event.target.closest(`.recipe__quantity__${item.id}`).value
         : 0
             
         // Edit recipe item 
@@ -189,8 +192,19 @@ elements.recipe.addEventListener('input', event => {
 
         // Edit recipe view
         const className = generateRecipeClassName('total', recipeID);
-        const item = state.recipe.getItem(recipeID);
         editItem(className, item.total);
+        updateTotalCost(state.recipe.total);
+    } else if (event.target.matches('.recipe__checkbox')) {
+        const isChecked = event.target.closest('.recipe__checkbox').checked;
+        if (isChecked) {
+            item.check();
+            state.recipe.increaseTotalCost(item.total);
+        } else {
+            item.uncheck();
+            state.recipe.decreaseTotalCost(item.total);
+        }
+
+        changeQuantityView(isChecked, item);
         updateTotalCost(state.recipe.total);
     }
 });

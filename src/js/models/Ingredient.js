@@ -6,6 +6,7 @@ class Ingredient {
         this._unit = unit;
         this._quantity = 0;
         this._total = 0;
+        this._enable;
     } 
     
     get name() {
@@ -48,8 +49,24 @@ class Ingredient {
         this._total = value;
     }
 
+    get enable() {
+        return this._enable;
+    }
+
+    set enable(value) {
+        this._enable = value;
+    }
+
     calculateTotal() {
         this._total = (((this._quantity ? this._quantity : 0)  * this._price) / (this._unit === 'kg' ? 1000 : 1)).toFixed(2);
+    }
+
+    check() {
+        this._enable = true;
+    }
+
+    uncheck() {
+        this._enable = false;
     }
 }
 
