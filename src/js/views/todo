@@ -1,4 +1,4 @@
 - recipeView
     - display or hide bin when item hovered @done
-- ListView
+- listView
     - create search bar
