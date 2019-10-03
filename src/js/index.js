@@ -199,11 +199,15 @@ elements.recipe.addEventListener('input', event => {
         // Check if item is checked on the view
         const isChecked = event.target.closest('.recipe__checkbox').checked;
         if (isChecked) {
+            // Toggle color
+            toggleColor(item.id);
             // Check item model
             item.check();
             // Increase total cost
             state.recipe.increaseTotalCost(item.total);
         } else {
+            // Toggle color
+            toggleColor(item.id);
             // Uncheck item model
             item.uncheck();
             // Decrease item model

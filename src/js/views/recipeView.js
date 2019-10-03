@@ -68,5 +68,10 @@ const toggleQuantity = (isChecked, item) => {
     }
 }
 
+const toggleColor = itemId => {
+    const item = document.querySelector(`[data-recipeid="${itemId}"]`);
+    item.classList.toggle('table-warning');
+};
+
 
 
