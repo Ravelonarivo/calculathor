@@ -22,7 +22,7 @@ body {
     display: none;
 }
 
-.form-row:hover .btn-close {
+.list__item:hover .btn-close {
     display: block;
 }
 
