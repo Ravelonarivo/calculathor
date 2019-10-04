@@ -7,5 +7,5 @@ const elements = {
     recipe: document.querySelector('.recipe'),
     btnClear: document.querySelector('.btn-clear'),
     recipeTotalCost: document.querySelector('.recipe__totalcost'),
-    recipeAlert: document.querySelector('.recipe__alert')
+    alert: document.querySelector('.alert'),  
 };
