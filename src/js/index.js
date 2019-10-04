@@ -32,8 +32,10 @@ const controlIngredient = () => {
 // List controler
 const controlList = () => {
 
-    const ingredientName = formatingredientName(elements.ingredientName.value);
-    if (ingredientName && elements.ingredientPrice.value) {
+    if (elements.ingredientName.value && elements.ingredientPrice.value) {
+        
+        const ingredientName = formatingredientName(elements.ingredientName.value);
+
         // Create new list
         if (!state.list) {
             state.list = new List();
