@@ -7,9 +7,8 @@ window.state = state;
 const controlIngredient = () => {
 
     // Add Ingredient
-    if (elements.ingredientName.value !== '' && elements.ingredientPrice.value) {  
-        const ingredientName = formatInput(elements.ingredientName.value);
-
+    const ingredientName = formatInput(elements.ingredientName.value);
+    if (ingredientName !== '' && elements.ingredientPrice.value) {  
         // Find item from list
         const item = state.list 
         ? state.list.findItem(ingredientName)
@@ -32,9 +31,9 @@ const controlIngredient = () => {
 // List controler
 const controlList = () => {
 
-    if (elements.ingredientName.value && elements.ingredientPrice.value) {       
-        const ingredientName = formatInput(elements.ingredientName.value);
-
+    const ingredientName = formatInput(elements.ingredientName.value);
+    if (ingredientName !== '' && elements.ingredientPrice.value) {       
+        
         // Create new list
         if (!state.list) {
             state.list = new List();
