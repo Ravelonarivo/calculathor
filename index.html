@@ -12,9 +12,19 @@
     <body>
         <div class="container">
             <header class="header">
-                <div class="header__title">
-                    <h1 class="heading-primary">CalculaTHOR</h1>
-                </div>
+                <nav class="navbar navbar-light">
+                    <div class="header__title">
+                        <a class="navbar-brand"><h1 class="heading-primary">CalculaTHOR</h1></a>
+                    </div>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="icon ion-md-search"></i></div>
+                            </div>
+                        </div>
+                    </form>
+                </nav>             
             </header>
                 
             <main>
@@ -60,6 +70,7 @@
                         </section>
                     </div>
                     <div class="col-4">
+                        
                         <section class=section-ingredient>
                             <h2 class="heading-secondary">Ingredients</h2>
                             <form class="ingredient">
