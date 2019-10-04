@@ -13,14 +13,16 @@
         <div class="container">                       
             <nav class="navbar navbar-light">
                 <a class="navbar-brand"><h1 class="heading-primary">CalculaTHOR</h1></a>
-                <form class="form-inline">
-                    <div class="input-group">
-                        <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <div class="input-group-text"><i class="icon ion-md-search"></i></div>
+                <div class="search">
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <input class="form-control form-control-lg search__input" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="icon ion-md-search"></i></div>    
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </nav>
                 
             <main>
@@ -87,9 +89,12 @@
                                         <button type="button" class="btn btn-outline-success btn-sm ingredient__validate--btn"><i class="icon ion-md-checkmark"></i></button>
                                     </div>
                                 </div>
-                                <hr/>
+                            </form>
+                        </section>       
+                        <hr/>
 
-                                <div class="list"> 
+                        <section class="section-list">
+                            <form class="list"> 
                                 <!--<div class="form-row list__item">
                                         <div class="form-group col-md-1">
                                             <button type="button" class="btn btn-outline-success btn-sm"><i class="icon ion-md-add"></i></button>
@@ -130,7 +135,6 @@
                                             <button type="button" class="btn btn-outline-danger btn-sm btn-close"><i class="icon ion-md-trash"></i></button>
                                         </div>
                                     </div>-->
-                                </div>
                             </form>
                         </section>
                     </div>
