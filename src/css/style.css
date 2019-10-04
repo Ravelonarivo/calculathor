@@ -40,11 +40,13 @@ body {
     overflow-y: scroll;
 }
 
-.recipe__alert {
+.alert {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
     opacity: 0.6;
+    width: 80%;
+    text-align: center;
 }

@@ -50,14 +50,14 @@ const getNewValue = (event, label) => {
 };
 
 const listAlert = itemName => {
-    elements.recipeAlert.innerHTML = `
+    elements.alert.innerHTML = `
         <div class="alert alert-danger" role="alert">
             ${itemName} is already into the list!
         </div>
     `;
 
     setTimeout(() => {
-        elements.recipeAlert.innerHTML = '';
+        elements.alert.innerHTML = '';
     }, 5000);
 };
 

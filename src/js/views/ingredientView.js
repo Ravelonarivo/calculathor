@@ -6,13 +6,13 @@ const cleanInputs = () => {
 };
 
 const ingredientAlert = () => {
-    elements.recipeAlert.innerHTML = `
+    elements.alert.innerHTML = `
         <div class="alert alert-danger" role="alert">
             Please fill all inputs!
         </div>
     `;
     
     setTimeout(() => {
-        elements.recipeAlert.innerHTML = '';
+        elements.alert.innerHTML = '';
     }, 5000);
 };
