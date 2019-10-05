@@ -259,6 +259,8 @@ elements.searchInput.addEventListener('input', event => {
         const result = state.list.searchItem(searchInputValue);
         if (result.length > 0) {
             showSearchResult(result);
+        } else {
+            showSearchResult(result, searchInputValue);
         }
     }
 });

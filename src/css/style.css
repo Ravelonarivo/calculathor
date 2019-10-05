@@ -50,3 +50,8 @@ body {
     width: 80%;
     text-align: center;
 }
+
+.search__no-result {
+    text-align: center;
+    font-weight: bold;
+}

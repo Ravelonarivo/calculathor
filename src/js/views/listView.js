@@ -61,11 +61,17 @@ const listAlert = itemName => {
     }, 5000);
 };
 
-const showSearchResult = result => {
+const showSearchResult = (result, inputValue = null) => {
     elements.list.textContent = '';
-    result.forEach(item => {
-        addItem(item);
-    });
+    if (result.length > 0) {
+        result.forEach(item => {
+            addItem(item);
+        });
+    } else {
+        elements.list.innerHTML = `
+            <p class="search__no-result">No result result for "${inputValue}"</p>
+        `;
+    }
 }
 
 const validateInput = className => {
