@@ -12,13 +12,13 @@ class List {
         this.items.splice(index, 1);
     }
 
-    editItem(itemID, newValue) {
+    editItem(itemID, newValue, label) {
         const item = this.getItem(itemID);
-        if (parseFloat(newValue) || newValue === 0) {
+        if (label === 'price') {
             item.price = parseFloat(newValue);
-        } else if (newValue === 'kg' || newValue === 'piece') {
+        } else if (label === 'unit') {
             item.unit = newValue;
-        } else {
+        } else if (label === 'name') {
             item.name = newValue;
         }
     }
@@ -70,5 +70,9 @@ class List {
             this.items = result.map(item => new Ingredient(item.id, item.name, item.price, item.unit));
             this.itemsObj = result;
         } 
+    }
+
+    getItemsId() {
+        return this.items.map(item => item.id);
     }
 }

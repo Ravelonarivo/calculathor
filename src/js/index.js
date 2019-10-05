@@ -144,19 +144,36 @@ elements.list.addEventListener('input', event => {
 
     let newValue = null;
     let className = null;
-    if (event.target.matches('.list__item__name')) {
-        newValue = formatInput(getNewValue(event, 'name'));       
-        className = generateRecipeClassName('name', itemID);
-    } else if (event.target.matches('.list__item__price')) {
-        newValue = getNewValue(event, 'price');
-        className = generateRecipeClassName('price', itemID);
-    } else if (event.target.matches('.list__item__unit')) {
-        newValue = getNewValue(event, 'unit');;
+    let listItemClassName = null;
+    let inputLabel = null;
+    if (event.target.matches(`.list__item__name__${itemID}`)) {
+        inputLabel = 'name';
+        newValue = formatInput(getNewValue(event, itemID, inputLabel));       
+        className = generateRecipeClassName(inputLabel, itemID);
+        listItemClassName = `.list__item__name__${itemID}`;
+        if (newValue !== '') {
+            validateInput(listItemClassName);
+        } else {
+            invalidadteInput(listItemClassName);
+        }
+    } else if (event.target.matches(`.list__item__price__${itemID}`)) {
+        inputLabel =  'price';
+        newValue = getNewValue(event, itemID, inputLabel);
+        className = generateRecipeClassName(inputLabel, itemID);
+        listItemClassName = `.list__item__price__${itemID}`;
+        if (newValue !== 0 && newValue !== '0') {
+            validateInput(listItemClassName);
+        } else {
+            invalidadteInput(listItemClassName);
+        }
+    } else if (event.target.matches(`.list__item__unit__${itemID}`)) {
+        inputLabel = 'unit';
+        newValue = getNewValue(event, itemID, 'unit');;
         className = generateRecipeClassName('unit', itemID);
     }
-    
+
     // Edit list item
-    state.list.editItem(itemID, newValue);
+    state.list.editItem(itemID, newValue, inputLabel);
     // Save change 
     state.list.saveItems(itemID);
 
@@ -267,6 +284,8 @@ window.addEventListener('load', () => {
     // Render list
     if (state.list.items.length > 0) {
         showSearchResult(state.list.items);
+        // Check if all list inputs are valide
+        checkInputs(state.list.getItemsId());
     }
 });
 
