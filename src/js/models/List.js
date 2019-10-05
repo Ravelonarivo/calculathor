@@ -38,13 +38,8 @@ class List {
 
     searchItem(param) {
         const re = new RegExp(`^${param}`, 'i');
-        let result = null;
-        if (parseFloat(param)) {
-            result = this.items.filter(item => re.test(item.price) === true);
-        } else {
-            result = this.items.filter(item => re.test(item.name) === true);
-        }
-        
-        return result;
+        return parseFloat(param) 
+        ? this.items.filter(item => re.test(item.price) === true)
+        : this.items.filter(item => re.test(item.name) === true);
     }
 }
