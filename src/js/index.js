@@ -22,8 +22,11 @@ const controlIngredient = () => {
             // Create Ingredient
             state.ingredient = new Ingredient(id, ingredientName, elements.ingredientPrice.value, elements.ingredientUnit.value);
         }
+
+        validateInputs();
     } else {
         ingredientAlert();
+        invalidateInputs(ingredientName, elements.ingredientPrice.value);
     }
 };
 

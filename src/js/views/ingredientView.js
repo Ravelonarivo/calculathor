@@ -16,3 +16,24 @@ const ingredientAlert = () => {
         elements.alert.innerHTML = '';
     }, 5000);
 };
+
+const invalidateInputs = (name, price) => {
+    console.log(price);
+    name === '' 
+    ? elements.ingredientName.classList.add('is-invalid')
+    : elements.ingredientName.classList.remove('is-invalid');
+
+    !price 
+    ? elements.ingredientPrice.classList.add('is-invalid')
+    : elements.ingredientPrice.classList.remove('is-invalid');
+};
+
+const validateInputs = () => {
+    if (elements.ingredientName.classList.contains('is-invalid')) {
+        elements.ingredientName.classList.remove('is-invalid');
+    }
+
+    if (elements.ingredientPrice.classList.contains('is-invalid')) {
+        elements.ingredientPrice.classList.remove('is-invalid');
+    }   
+};
