@@ -18,7 +18,6 @@ const ingredientAlert = () => {
 };
 
 const invalidateInputs = (name, price) => {
-    console.log(price);
     name === '' 
     ? elements.ingredientName.classList.add('is-invalid')
     : elements.ingredientName.classList.remove('is-invalid');
