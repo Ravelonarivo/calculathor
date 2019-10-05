@@ -8,4 +8,5 @@ const elements = {
     btnClear: document.querySelector('.btn-clear'),
     recipeTotalCost: document.querySelector('.recipe__totalcost'),
     alert: document.querySelector('.alert'),  
+    searchInput: document.querySelector('.search__input')
 };

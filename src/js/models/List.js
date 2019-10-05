@@ -35,4 +35,9 @@ class List {
         const re = new RegExp(`^${itemName}$`, 'i');
         return this.items.filter(item => re.test(item.name) === true);
     }
+
+    searchItem(itemName) {
+        const re = new RegExp(`^${itemName}`, 'i');
+        return this.items.filter(item => re.test(item.name) === true);
+    }
 }

@@ -85,10 +85,12 @@ const controlRecipe = item => {
 };
 
 document.addEventListener('keypress', event => {
-    if ((event.keyCode === 13 || event.which === 13) && event.target.closest('.ingredient__formular')) {
-        controlIngredient();
-        controlList();
-        
+    if ((event.keyCode === 13 || event.which === 13)) {
+        event.preventDefault();
+        if (event.target.closest('.ingredient__formular')) {
+            controlIngredient();
+            controlList();
+        } 
     }
 });
 
@@ -216,6 +218,18 @@ elements.recipe.addEventListener('click', event => {
 
     if (event.target.closest('.btn-remove')) {
         removeItemFromRecipe(item.id);
+    }
+});
+
+
+// Manage change on search input
+elements.searchInput.addEventListener('input', event => {
+    if (state.list && state.list.items.length > 1) {
+        const searchInputValue = formatInput(event.target.value);
+        const result = state.list.searchItem(searchInputValue);
+        if (result.length > 0) {
+            showSearchResult(result);
+        }
     }
 });
 

@@ -55,9 +55,16 @@ const listAlert = itemName => {
             ${itemName} is already into the list!
         </div>
     `;
-
+    
     setTimeout(() => {
         elements.alert.innerHTML = '';
     }, 5000);
 };
+
+const showSearchResult = result => {
+    elements.list.textContent = '';
+    result.forEach(item => {
+        addItem(item);
+    });
+}
 
