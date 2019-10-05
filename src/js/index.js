@@ -224,7 +224,7 @@ elements.recipe.addEventListener('click', event => {
 
 // Manage change on search input
 elements.searchInput.addEventListener('input', event => {
-    if (state.list && state.list.items.length > 1) {
+    if (state.list && state.list.items.length > 0) {
         const searchInputValue = formatInput(event.target.value);
         const result = state.list.searchItem(searchInputValue);
         if (result.length > 0) {
