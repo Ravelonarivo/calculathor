@@ -145,7 +145,7 @@ elements.list.addEventListener('input', event => {
     let newValue = null;
     let className = null;
     if (event.target.matches('.list__item__name')) {
-        newValue = getNewValue(event, 'name');       
+        newValue = formatInput(getNewValue(event, 'name'));       
         className = generateRecipeClassName('name', itemID);
     } else if (event.target.matches('.list__item__price')) {
         newValue = getNewValue(event, 'price');
