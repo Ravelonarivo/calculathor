@@ -49,6 +49,8 @@ const controlList = () => {
             const ingredient = Object.create(state.ingredient);
             // Add item to the list
             state.list.addItem(ingredient);
+            // Save item 
+            state.list.saveItems(ingredient);
 
             // Add item on the view
             addItem(ingredient);
@@ -116,7 +118,9 @@ elements.list.addEventListener('click', event => {
         state.list.removeItem(itemIndex);
         // Remove item from list view
         removeItem(itemId);
-
+        // Save change
+        state.list.saveItems(itemIndex);
+        
         //Remove recipe item and update total cost
         if (state.recipe && state.recipe.items.length > 0) {
             // get itemIndex
@@ -153,6 +157,8 @@ elements.list.addEventListener('input', event => {
     
     // Edit list item
     state.list.editItem(itemID, newValue);
+    // Save change 
+    state.list.saveItems(itemID);
 
     // Edit recipe item
     if (state.recipe && state.recipe.items.length > 0) {
@@ -248,6 +254,19 @@ elements.btnClear.addEventListener('click', () => {
         state.recipe.clearItems();
         state.recipe.calculateTotalCost();
         updateTotalCost(state.recipe.total);
+    }
+});
+
+ 
+window.addEventListener('load', () => {
+    state.list = new List();
+
+    // recover items
+    state.list.recoverItems();
+
+    // Render list
+    if (state.list.items.length > 0) {
+        showSearchResult(state.list.items);
     }
 });
 

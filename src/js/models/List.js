@@ -1,6 +1,7 @@
 class List {
     constructor() {
         this.items = [];
+        this.itemsObj = [];
     }
 
     addItem(ingredient) {
@@ -20,7 +21,6 @@ class List {
         } else {
             item.name = newValue;
         }
-        
     }
 
     getItemIndex(itemId) {
@@ -41,5 +41,34 @@ class List {
         return parseFloat(param) 
         ? this.items.filter(item => re.test(item.price) === true)
         : this.items.filter(item => re.test(item.name) === true);
+    }
+
+    saveItems(param) {
+        if (typeof param === 'number') {
+            this.itemsObj.splice(param, 1);
+        } else if (typeof param === 'string') {
+            const item = this.getItem(param);
+            const itemObj = this.itemsObj.find(item => item.id === parseInt(param));
+            itemObj.name = item.name;
+            itemObj.price = item.price;
+            itemObj.unit = item.unit;
+        } else if (typeof param === 'object') {
+            this.itemsObj.push({
+                id: param.id,
+                name: param.name,
+                price: param.price,
+                unit: param.unit
+            });
+        }
+
+        localStorage.setItem('items', JSON.stringify(this.itemsObj));
+    }
+
+    recoverItems() {
+        const result = JSON.parse(localStorage.getItem('items'));      
+        if (result) {
+            this.items = result.map(item => new Ingredient(item.id, item.name, item.price, item.unit));
+            this.itemsObj = result;
+        } 
     }
 }
