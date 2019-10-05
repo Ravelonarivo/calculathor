@@ -2,7 +2,7 @@ const addItem = ingredient => {
     const markUp = `
         <div class="form-row list__item" data-itemid="${ ingredient.id }">
             <div class="form-group col-md-1">
-                <button type="button" class="btn btn-outline-success btn-sm btn-insert"><i class="icon ion-md-add"></i></button>
+                <button title="Insert into the recipe table" type="button" class="btn btn-outline-success btn-sm btn-insert"><i class="icon ion-md-add"></i></button>
             </div>
             <div class="form-group col-md-4">
                 <input type="text" class="list__item__name__${ ingredient.id } form-control form-control-sm" placeholder="Name" value="${ingredient.name}">
@@ -17,7 +17,7 @@ const addItem = ingredient => {
                 </select>
             </div>
             <div class="form-group col-md-1">
-                <button type="button" class="btn btn-outline-danger btn-sm btn-close"><i class="icon ion-md-trash"></i></button>
+                <button title="Delete" type="button" class="btn btn-outline-danger btn-sm btn-close"><i class="icon ion-md-trash"></i></button>
             </div>
         </div>
     `;
