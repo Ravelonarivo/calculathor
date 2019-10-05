@@ -17,7 +17,11 @@ const controlIngredient = () => {
         // Create new Ingredient
         if (item.length === 0) {
             // Generate id
-            const id = state.ingredient ? state.ingredient.id + 1 : 1;
+            const id = state.ingredient 
+            ? state.ingredient.id + 1 
+            : state.list.items.length > 0 
+            ? state.list.items[state.list.items.length -1].id + 1
+            : 1;
         
             // Create Ingredient
             state.ingredient = new Ingredient(id, ingredientName, elements.ingredientPrice.value, elements.ingredientUnit.value);
