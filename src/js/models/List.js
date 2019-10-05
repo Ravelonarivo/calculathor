@@ -36,8 +36,15 @@ class List {
         return this.items.filter(item => re.test(item.name) === true);
     }
 
-    searchItem(itemName) {
-        const re = new RegExp(`^${itemName}`, 'i');
-        return this.items.filter(item => re.test(item.name) === true);
+    searchItem(param) {
+        const re = new RegExp(`^${param}`, 'i');
+        let result = null;
+        if (parseFloat(param)) {
+            result = this.items.filter(item => re.test(item.price) === true);
+        } else {
+            result = this.items.filter(item => re.test(item.name) === true);
+        }
+        
+        return result;
     }
 }
