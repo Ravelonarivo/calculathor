@@ -116,7 +116,11 @@ elements.list.addEventListener('click', event => {
 
         //Remove recipe item and update total cost
         if (state.recipe && state.recipe.items.length > 0) {
-            removeItemFromRecipe(itemId);
+            // get itemIndex
+            itemIndex = state.recipe.getItemIndex(itemId);
+            itemIndex >= 0 
+            ? removeItemFromRecipe(itemId, itemIndex)
+            : '';
         }
 
     } else if (event.target.closest('.btn-insert')) {
@@ -245,9 +249,7 @@ elements.btnClear.addEventListener('click', () => {
 });
 
 
-const removeItemFromRecipe = itemId => {
-    // get itemIndex
-    itemIndex = state.recipe.getItemIndex(itemId);
+const removeItemFromRecipe = (itemId, itemIndex) => {
     // remove item from recipe 
     state.recipe.removeItem(itemIndex);
     // remove item from recipe view
