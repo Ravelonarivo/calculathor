@@ -249,9 +249,9 @@ elements.recipe.addEventListener('input', event => {
 elements.recipe.addEventListener('click', event => {
     const recipeID = getRecipeId(event);
     const item = state.recipe.getItem(recipeID);
-
+    const itemIndex = state.recipe.getItemIndex(recipeID);
     if (event.target.closest('.btn-remove')) {
-        removeItemFromRecipe(item.id);
+        removeItemFromRecipe(item.id, itemIndex);
     }
 });
 
