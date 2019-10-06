@@ -35,7 +35,7 @@ body {
 }
 
 .list {
-    height: 400px;
+    height: 350px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -54,4 +54,20 @@ body {
 .search__no-result {
     text-align: center;
     font-weight: bold;
+}
+
+.copyright, .company {
+    color: #968B87;
+}
+
+.company {
+    float: left;
+}
+
+.copyright {
+    float: right;
+}
+
+.footer {
+    margin-top: 55px;
 }

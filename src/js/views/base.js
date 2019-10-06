@@ -8,5 +8,10 @@ const elements = {
     btnClear: document.querySelector('.btn-clear'),
     recipeTotalCost: document.querySelector('.recipe__totalcost'),
     alert: document.querySelector('.alert'),  
-    searchInput: document.querySelector('.search__input')
+    searchInput: document.querySelector('.search__input'),
+    currentYear: document.querySelector('.current-year')
+};
+
+const getCurrentYear = () => {
+    return new Date().getFullYear();
 };

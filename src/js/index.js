@@ -293,6 +293,8 @@ window.addEventListener('load', () => {
         // Check if all list inputs are valide
         checkInputs(state.list.getItemsId());
     }
+
+    elements.currentYear.textContent = getCurrentYear();
 });
 
 
