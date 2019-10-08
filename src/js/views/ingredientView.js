@@ -25,6 +25,10 @@ const invalidateInputs = (name, price) => {
     !price 
     ? elements.ingredientPrice.classList.add('is-invalid')
     : elements.ingredientPrice.classList.remove('is-invalid');
+
+    setTimeout(() => {
+        validateInputs();
+    }, 5000);
 };
 
 const validateInputs = () => {
