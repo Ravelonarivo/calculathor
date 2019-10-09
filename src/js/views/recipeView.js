@@ -48,14 +48,16 @@ const getRecipeId = event => {
 };
 
 const recipeAlert = item => {
-    elements.alert.innerHTML = `
+    elements.alertPopup.style.visibility = 'visible';
+    elements.alertPopup.innerHTML = `
         <div class="alert alert-danger" role="alert">
             ${item.name} is already into the recipe!
         </div>
     `;
 
     setTimeout(() => {
-        elements.alert.innerHTML = '';
+        elements.alertPopup.innerHTML = '';
+        elements.alertPopup.style.visibility = 'hidden';
     }, 5000);
 };
 

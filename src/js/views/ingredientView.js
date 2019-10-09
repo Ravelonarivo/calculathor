@@ -6,14 +6,16 @@ const cleanInputs = () => {
 };
 
 const ingredientAlert = () => {
-    elements.alert.innerHTML = `
+    elements.alertPopup.style.visibility = 'visible';
+    elements.alertPopup.innerHTML = `
         <div class="alert alert-danger" role="alert">
             Please fill all inputs!
         </div>
     `;
     
     setTimeout(() => {
-        elements.alert.innerHTML = '';
+        elements.alertPopup.innerHTML = '';
+        elements.alertPopup.style.visibility = 'hidden';
     }, 5000);
 };
 

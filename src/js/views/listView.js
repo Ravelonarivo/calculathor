@@ -50,14 +50,16 @@ const getNewValue = (event, itemId, label) => {
 };
 
 const listAlert = itemName => {
-    elements.alert.innerHTML = `
+    elements.alertPopup.style.visibility = 'visible';
+    elements.alertPopup.innerHTML = `
         <div class="alert alert-danger" role="alert">
             ${itemName} is already into the list!
         </div>
     `;
     
     setTimeout(() => {
-        elements.alert.innerHTML = '';
+        elements.alertPopup.innerHTML = '';
+        elements.alertPopup.style.visibility = 'hidden';
     }, 5000);
 };
 

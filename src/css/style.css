@@ -40,15 +40,16 @@ body {
     overflow-y: scroll;
 }
 
-.alert {
+.alert__popup {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
     opacity: 1;
-    width: 80%;
+    width: 70%;
     text-align: center;
+    visibility: hidden;
 }
 
 .search__no-result {
