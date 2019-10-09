@@ -13,6 +13,7 @@ const addItem = ingredient => {
             <div class="form-group col-md-3">
                 <select class="list__item__unit__${ ingredient.id } form-control form-control-sm">
                     <option ${ ingredient.unit === 'kg' ? 'selected' : '' }>kg</option>
+                    <option ${ ingredient.unit === 'litre' ? 'selected' : '' }>litre</option>
                     <option ${ ingredient.unit === 'piece' ? 'selected' : '' }>piece</option>
                 </select>
             </div>

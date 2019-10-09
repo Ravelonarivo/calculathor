@@ -68,5 +68,13 @@ class Ingredient {
     uncheck() {
         this._enable = false;
     }
+
+    clTolitre() {
+        return this._quantity * 0.01;
+    }
+
+    dlToLitre() {
+        return this._quantity * 0.1;
+    }
 }
 
