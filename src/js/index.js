@@ -152,7 +152,7 @@ elements.list.addEventListener('input', event => {
     let inputLabel = null;
     if (event.target.matches(`.list__item__name__${itemID}`)) {
         inputLabel = 'name';
-        newValue = formatInput(getNewValue(event, itemID, inputLabel));       
+        newValue = formatInput(getNewValue(event, itemID, inputLabel));      
         className = generateRecipeClassName(inputLabel, itemID);
         listItemClassName = `.list__item__name__${itemID}`;
         if (newValue !== '') {
@@ -312,8 +312,13 @@ const removeItemFromRecipe = (itemId, itemIndex) => {
 };
 
 const formatInput = input => {
-    return input.trim()
-               .split(' ')
-               .filter(item => item !== '')
-               .join(' ');
+    if (input) {
+        input = input.trim();
+        input[0].toUpperCase().concat('', input.substring(1))
+                .split(' ') 
+                .filter(item => item !== '')
+                .join(' ');
+    }
+    
+    return input;
 };
