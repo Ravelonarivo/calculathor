@@ -20,7 +20,6 @@ class Recipe {
         const item = this.getItem(itemID);     
         if (item) {
             if (label === 'quantity') {
-                console.log('quantity');
                 if (quantityUnit) {
                     item.quantity = parseFloat(newValue)
                     item.quantity = quantityUnit === 'L' 
@@ -31,7 +30,6 @@ class Recipe {
                 }  
                 item.calculateTotal();
             } else if (label === 'quantityUnit') {
-                console.log('quantityUnit'); 
                 const tmp = item.quantity;
                 item.quantity = quantityUnit === 'L' 
                 ? item.quantity
@@ -39,7 +37,6 @@ class Recipe {
                 item.calculateTotal();
                 item.quantity = tmp; 
             } else if (label === 'price') {
-                console.log('price');
                 item.price = parseFloat(newValue);
                 if (quantityUnit) {
                     const tmp = item.quantity;
@@ -52,11 +49,9 @@ class Recipe {
                     item.calculateTotal();
                 }
             } else if (label === 'unit') {
-                console.log('unit');
                 item.unit = newValue;
                 item.calculateTotal();
             } else if (label === 'name'){
-                console.log('name');
                 item.name = newValue;
             }
         }       
