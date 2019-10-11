@@ -183,13 +183,18 @@ elements.list.addEventListener('input', event => {
 
     // Edit recipe item
     if (state.recipe && state.recipe.items.length > 0) {
-        state.recipe.editItem(itemID, newValue);
+
+        const quantityUnit = document.querySelector(`.recipe__quantity-unit__${itemID}`) 
+        ?  document.querySelector(`.recipe__quantity-unit__${itemID}`).value
+        : '';
+
+        state.recipe.editItem(itemID, quantityUnit, inputLabel, newValue);
 
         // update total cost
         state.recipe.calculateTotalCost();
 
         // Edit recipe View
-        editItem(className, newValue); 
+        editItem(className, newValue, itemID); 
         className = generateRecipeClassName('total', itemID);
         const item = state.recipe.getItem(itemID);
         if (item) {
@@ -205,17 +210,30 @@ elements.recipe.addEventListener('input', event => {
     const recipeID = getRecipeId(event);
     const item = state.recipe.getItem(recipeID);
 
-    if (event.target.matches(`.recipe__quantity__${item.id}`)) {
-        const newValue = event.target.matches(`.recipe__quantity__${item.id}`)
-        ? event.target.closest(`.recipe__quantity__${item.id}`).value
-        : 0
-            
-        // Edit recipe item 
-        state.recipe.editItem(recipeID, newValue, true);
+    if (event.target.matches(`.recipe__quantity__${item.id}`) || event.target.matches(`.recipe__quantity-unit__${item.id}`)) {
+        if (event.target.matches(`.recipe__quantity__${item.id}`)) {
+            const newValue = event.target.matches(`.recipe__quantity__${item.id}`)
+            ? event.target.closest(`.recipe__quantity__${item.id}`).value
+            : 0;
+    
+            const newValueUnit = document.querySelector(`.recipe__quantity-unit__${item.id}`) 
+            ?  document.querySelector(`.recipe__quantity-unit__${item.id}`).value
+            : '';
+                
+            // Edit recipe item 
+            state.recipe.editItem(recipeID, newValueUnit, 'quantity', newValue);
+        } else if (event.target.matches(`.recipe__quantity-unit__${item.id}`)) {
+            const recipeQuantityUnit = document.querySelector(`.recipe__quantity-unit__${item.id}`) 
+            ? document.querySelector(`.recipe__quantity-unit__${item.id}`).value
+            : '';
+    
+            // Edit recipe item 
+            state.recipe.editItem(recipeID, recipeQuantityUnit, 'quantityUnit');
+        }
 
         // Calculate total cost
         state.recipe.calculateTotalCost();
-
+    
         // Edit recipe view
         const className = generateRecipeClassName('total', recipeID);
         editItem(className, item.total);
@@ -239,7 +257,7 @@ elements.recipe.addEventListener('input', event => {
             state.recipe.decreaseTotalCost(item.total);
         }
 
-        toggleQuantity(isChecked, item);
+        toggleInputs(isChecked, item);
         updateTotalCost(state.recipe.total);
     }
 });

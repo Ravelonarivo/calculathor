@@ -16,19 +16,47 @@ class Recipe {
         this.items.splice(index, 1);
     }
 
-    editItem(itemID, newValue, isItQuantity = false) {
+    editItem(itemID, quantityUnit, label, newValue = null) {
         const item = this.getItem(itemID);     
         if (item) {
-            if (isItQuantity) {
-                item.quantity = parseFloat(newValue);
+            if (label === 'quantity') {
+                console.log('quantity');
+                if (quantityUnit) {
+                    item.quantity = parseFloat(newValue)
+                    item.quantity = quantityUnit === 'L' 
+                    ? item.quantity
+                    : quantityUnit === 'dl' ? item.dlToLitre() : item.clToLitre();
+                } else {
+                    item.quantity = parseFloat(newValue);
+                }  
                 item.calculateTotal();
-            } else if (parseFloat(newValue) || newValue === 0) {
+            } else if (label === 'quantityUnit') {
+                console.log('quantityUnit'); 
+                const tmp = item.quantity;
+                item.quantity = quantityUnit === 'L' 
+                ? item.quantity
+                : quantityUnit === 'dl' ? item.dlToLitre() : item.clToLitre();
+                item.calculateTotal();
+                item.quantity = tmp; 
+            } else if (label === 'price') {
+                console.log('price');
                 item.price = parseFloat(newValue);
-                item.calculateTotal();
-            } else if (newValue === 'kg' || newValue === 'piece') {
+                if (quantityUnit) {
+                    const tmp = item.quantity;
+                    item.quantity = quantityUnit === 'L' 
+                    ? item.quantity
+                    : quantityUnit === 'dl' ? item.dlToLitre() : item.clToLitre();
+                    item.calculateTotal();
+                    item.quantity = tmp; 
+                } else {
+                    item.calculateTotal();
+                }
+            } else if (label === 'unit') {
+                console.log('unit');
                 item.unit = newValue;
                 item.calculateTotal();
-            } else {
+            } else if (label === 'name'){
+                console.log('name');
                 item.name = newValue;
             }
         }       
