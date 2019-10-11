@@ -88,10 +88,10 @@ const toggleInputs = (isChecked, item) => {
     const quantityUnitInput = document.querySelector(`.recipe__quantity-unit__${item.id}`);
     if (isChecked) {
         quantityInput.removeAttribute('disabled');
-        quantityUnitInput.removeAttribute('disabled');
+        quantityUnitInput ? quantityUnitInput.removeAttribute('disabled') : '';
     } else {
         quantityInput.setAttribute('disabled', '');
-        quantityUnitInput.setAttribute('disabled', '');
+        quantityUnitInput ? quantityUnitInput.setAttribute('disabled', '') : '';
     }   
 }
 
