@@ -20,31 +20,18 @@ class Recipe {
         const item = this.getItem(itemID);     
         if (item) {
             if (label === 'quantity') {
-                if (quantityUnit) {
-                    item.quantity = parseFloat(newValue)
-                    item.quantity = quantityUnit === 'L' 
-                    ? item.quantity
-                    : quantityUnit === 'dl' ? item.dlToLitre() : item.clToLitre();
+                item.quantity = parseFloat(newValue);
+                if (quantityUnit) {    
+                    this.convertQuantityUnit(item, quantityUnit);
                 } else {
-                    item.quantity = parseFloat(newValue);
+                    item.calculateTotal();
                 }  
-                item.calculateTotal();
             } else if (label === 'quantityUnit') {
-                const tmp = item.quantity;
-                item.quantity = quantityUnit === 'L' 
-                ? item.quantity
-                : quantityUnit === 'dl' ? item.dlToLitre() : item.clToLitre();
-                item.calculateTotal();
-                item.quantity = tmp; 
+                this.convertQuantityUnit(item, quantityUnit); 
             } else if (label === 'price') {
                 item.price = parseFloat(newValue);
                 if (quantityUnit) {
-                    const tmp = item.quantity;
-                    item.quantity = quantityUnit === 'L' 
-                    ? item.quantity
-                    : quantityUnit === 'dl' ? item.dlToLitre() : item.clToLitre();
-                    item.calculateTotal();
-                    item.quantity = tmp; 
+                    this.convertQuantityUnit(item, quantityUnit); 
                 } else {
                     item.calculateTotal();
                 }
@@ -77,5 +64,14 @@ class Recipe {
 
     decreaseTotalCost(itemTotal) {
         this.total = (parseFloat(this.total) - parseFloat(itemTotal)).toFixed(2);
+    }
+
+    convertQuantityUnit(item, quantityUnit) {
+        const tmp = item.quantity;
+        item.quantity = quantityUnit === 'L' 
+        ? item.quantity
+        : quantityUnit === 'dl' ? item.dlToLitre() : item.clToLitre();
+        item.calculateTotal();
+        item.quantity = tmp; 
     }
 }
