@@ -38,7 +38,7 @@ class List {
 
     searchItem(param) {
         const re = new RegExp(`^${param}`, 'i');
-        return parseFloat(param) 
+        return parseFloat(param) || param === '0' || param === '0.'
         ? this.items.filter(item => re.test(item.price) === true)
         : this.items.filter(item => re.test(item.name) === true);
     }
