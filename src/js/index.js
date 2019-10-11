@@ -336,8 +336,8 @@ const removeItemFromRecipe = (itemId, itemIndex) => {
 
 const formatInput = input => {
     if (input) {
-        input = input.trim();
-        input[0].toUpperCase().concat('', input.substring(1))
+        input = input.trim();      
+        input = input[0].toUpperCase().concat('', input.substring(1))
                 .split(' ') 
                 .filter(item => item !== '')
                 .join(' ');
