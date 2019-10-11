@@ -222,21 +222,21 @@ elements.recipe.addEventListener('input', event => {
             : '';
                 
             // Edit recipe item 
-            state.recipe.editItem(recipeID, newValueUnit, 'quantity', newValue);
+            state.recipe.editItem(item.id, newValueUnit, 'quantity', newValue);
         } else if (event.target.matches(`.recipe__quantity-unit__${item.id}`)) {
             const recipeQuantityUnit = document.querySelector(`.recipe__quantity-unit__${item.id}`) 
             ? document.querySelector(`.recipe__quantity-unit__${item.id}`).value
             : '';
     
             // Edit recipe item 
-            state.recipe.editItem(recipeID, recipeQuantityUnit, 'quantityUnit');
+            state.recipe.editItem(item.id, recipeQuantityUnit, 'quantityUnit');
         }
 
         // Calculate total cost
         state.recipe.calculateTotalCost();
     
         // Edit recipe view
-        const className = generateRecipeClassName('total', recipeID);
+        const className = generateRecipeClassName('total', item.id);
         editItem(className, item.total);
         updateTotalCost(state.recipe.total);
     } else if (event.target.matches(`.recipe__checkbox__${item.id}`)) {
