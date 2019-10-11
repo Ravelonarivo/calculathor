@@ -239,10 +239,10 @@ elements.recipe.addEventListener('input', event => {
         const className = generateRecipeClassName('total', recipeID);
         editItem(className, item.total);
         updateTotalCost(state.recipe.total);
-    } else if (event.target.matches('.recipe__checkbox')) {
+    } else if (event.target.matches(`.recipe__checkbox__${item.id}`)) {
         // Check if item is checked on the view
-        const isChecked = event.target.closest('.recipe__checkbox').checked;
-        if (isChecked) {
+        const checked = isChecked(event, item.id);
+        if (checked) {
             // Toggle color
             toggleColor(item.id);
             // Check item model
@@ -258,7 +258,7 @@ elements.recipe.addEventListener('input', event => {
             state.recipe.decreaseTotalCost(item.total);
         }
 
-        toggleInputs(isChecked, item);
+        toggleInputs(checked, item);
         updateTotalCost(state.recipe.total);
     }
 });

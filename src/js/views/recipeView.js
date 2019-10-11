@@ -2,7 +2,7 @@ const insertItem = item => {
 
     const markup = `
         <tr class="recipe__item" data-recipeid="${item.id}">
-            <td style="width: 5%"><input title="Enable/Disable" class="recipe__checkbox" type="checkbox" checked></td>
+            <td style="width: 5%"><input title="Enable/Disable" class="recipe__checkbox__${item.id}" type="checkbox" checked></td>
             <td style="width: 35%" class="recipe__name__${item.id}">${item.name}</td>
             <td style="width: 20%">
                 <div class="input-group recipe__input-group__${item.id}">
@@ -108,7 +108,11 @@ const generateRecipeQuantityUnitInput = itemId => {
                     <option>cl</option>
                 </select>
             `;
-}
+};
+
+const isChecked = (event, itemId) => {
+    return event.target.closest(`.recipe__checkbox__${itemId}`).checked
+};
 
 
 
