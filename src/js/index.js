@@ -202,6 +202,10 @@ elements.list.addEventListener('input', event => {
             editItem(className, item.total);
             updateTotalCost(state.recipe.total);
         }
+
+        // Check if item is checked on the view
+        const checked = isChecked(item.id);
+        toggleInputs(checked, item);  
     }
 });
 
@@ -241,7 +245,7 @@ elements.recipe.addEventListener('input', event => {
         updateTotalCost(state.recipe.total);
     } else if (event.target.matches(`.recipe__checkbox__${item.id}`)) {
         // Check if item is checked on the view
-        const checked = isChecked(event, item.id);
+        const checked = isChecked(item.id, event);
         if (checked) {
             // Toggle color
             toggleColor(item.id);

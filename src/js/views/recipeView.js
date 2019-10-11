@@ -110,8 +110,10 @@ const generateRecipeQuantityUnitInput = itemId => {
             `;
 };
 
-const isChecked = (event, itemId) => {
-    return event.target.closest(`.recipe__checkbox__${itemId}`).checked
+const isChecked = (itemId, event) => {
+    return event 
+           ? event.target.closest(`.recipe__checkbox__${itemId}`).checked
+           : document.querySelector(`.recipe__checkbox__${itemId}`).checked;
 };
 
 
