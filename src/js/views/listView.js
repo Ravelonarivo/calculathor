@@ -72,7 +72,7 @@ const showSearchResult = (result, inputValue = null) => {
         });
     } else {
         elements.list.innerHTML = `
-            <p class="search__no-result">No result result for "${inputValue}"</p>
+            <p class="search__no-result">No result for "${inputValue}"</p>
         `;
     }
 }
