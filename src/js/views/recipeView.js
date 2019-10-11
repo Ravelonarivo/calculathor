@@ -97,7 +97,7 @@ const toggleInputs = (isChecked, item) => {
 
 const toggleColor = itemId => {
     const item = document.querySelector(`[data-recipeid="${itemId}"]`);
-    item.classList.toggle('table-warning');
+    item.classList.toggle('table-danger');
 };
 
 const generateRecipeQuantityUnitInput = itemId => {
