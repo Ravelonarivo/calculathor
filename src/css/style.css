@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.navbar {
+    margin: 10px 0 20px 0;
+}
+
+.btn-close {
+    display: none;
+}
+
+.list__item:hover .btn-close {
+    display: block;
+}
+
+.btn-remove {
+    visibility: hidden;
+}
+
+.recipe__item:hover .btn-remove {
+    visibility: visible;
+}
+
+.list-body {
+    height: 370px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.alert__popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    opacity: 1;
+    width: 70%;
+    text-align: center;
+    visibility: hidden;
+}
+
+.search__no-result {
+    text-align: center;
+    font-weight: bold;
+}
+
+.copyright, .company {
+    color: #968B87;
+}
+
+.company {
+    float: left;
+}
+
+.copyright {
+    float: right;
+}
+
+.total {
+    float: right;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.footer {
+    margin-top: 55px;
+}
+
+.section-list {
+    margin-top: 10px;
+}
+
+.recipe-body {
+    height: 470px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.heading-primary {
+    display: inline-block;
+}
+
+.version {
+    text-transform: uppercase;
+    color: #968B87;
+}
+
+.app {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
